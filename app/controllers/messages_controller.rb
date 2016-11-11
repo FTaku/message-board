@@ -2,15 +2,14 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     # Messageを全て取得する。
-    @message = Message.all
+    @messages = Message.all
   end
-  # 中略
   
   def create
     @message = Message.new(message_params)
     @message.save
     redirect_to root_path , notice: 'メッセージを保存しました'
-end
+  end
 
   private
   def message_params
